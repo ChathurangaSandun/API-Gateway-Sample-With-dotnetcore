@@ -33,6 +33,13 @@
       ],
       "UpstreamPathTemplate": "/serviceone-api/values",
       "UpstreamHttpMethod": [ "Get" ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "10s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
       "Key": "serverone-values"
     },
     {
@@ -60,7 +67,13 @@
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:7000",
-    "AdministrationPath": "/administration"
+    "AdministrationPath": "/administration",
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,
+      "QuotaExceededMessage": "Customize Tips!",
+      "HttpStatusCode": 999,
+      "ClientIdHeader": "Test"
+    }
   }
 
 }
