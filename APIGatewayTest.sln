@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceOne", "ServiceOne\ServiceOne.csproj", "{6623E1DD-FE51-45B3-9277-C803CAC0AF80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTwo", "ServiceTwo\ServiceTwo.csproj", "{53F37DF4-8275-476F-B9B7-1FED581F504A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApiGateway", "OcelotApiGateway\OcelotApiGateway.csproj", "{152CB025-CC5D-4C1C-9C53-06CB5E4B6B49}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6623E1DD-FE51-45B3-9277-C803CAC0AF80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6623E1DD-FE51-45B3-9277-C803CAC0AF80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6623E1DD-FE51-45B3-9277-C803CAC0AF80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6623E1DD-FE51-45B3-9277-C803CAC0AF80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53F37DF4-8275-476F-B9B7-1FED581F504A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F37DF4-8275-476F-B9B7-1FED581F504A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F37DF4-8275-476F-B9B7-1FED581F504A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F37DF4-8275-476F-B9B7-1FED581F504A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{152CB025-CC5D-4C1C-9C53-06CB5E4B6B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{152CB025-CC5D-4C1C-9C53-06CB5E4B6B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{152CB025-CC5D-4C1C-9C53-06CB5E4B6B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{152CB025-CC5D-4C1C-9C53-06CB5E4B6B49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
