@@ -21,10 +21,46 @@
         }
       ],
       "UpstreamPathTemplate": "/servicetwo-api/{catchAll}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7001
+        }
+      ],
+      "UpstreamPathTemplate": "/serviceone-api/values",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "serverone-values"
+    },
+    {
+      "DownstreamPathTemplate": "/api/values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7002
+        }
+      ],
+      "UpstreamPathTemplate": "/servicetwo-api/values",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "servertwo-values"
+    }
+  ],
+  "Aggregates": [
+    {
+      "ReRouteKeys": [
+        "serverone-values",
+        "servertwo-values"
+      ],
+      "UpstreamPathTemplate": "/api/serverone-servertwo"
     }
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:7000",
     "AdministrationPath": "/administration"
   }
+
 }
