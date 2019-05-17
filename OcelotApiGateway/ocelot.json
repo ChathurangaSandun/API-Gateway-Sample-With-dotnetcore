@@ -9,7 +9,11 @@
           "Port": 7001
         }
       ],
-      "UpstreamPathTemplate": "/serviceone-api/{catchAll}"
+      "UpstreamPathTemplate": "/serviceone-api/{catchAll}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/{catchAll}",
@@ -20,7 +24,11 @@
           "Port": 7002
         }
       ],
-      "UpstreamPathTemplate": "/servicetwo-api/{catchAll}"
+      "UpstreamPathTemplate": "/servicetwo-api/{catchAll}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/values",
@@ -40,7 +48,11 @@
         "PeriodTimespan": 1,
         "Limit": 1
       },
-      "Key": "serverone-values"
+      "Key": "serverone-values",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/values",
@@ -53,7 +65,11 @@
       ],
       "UpstreamPathTemplate": "/servicetwo-api/values",
       "UpstreamHttpMethod": [ "Get" ],
-      "Key": "servertwo-values"
+      "Key": "servertwo-values",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": []
+      }
     }
   ],
   "Aggregates": [
@@ -62,7 +78,11 @@
         "serverone-values",
         "servertwo-values"
       ],
-      "UpstreamPathTemplate": "/api/serverone-servertwo"
+      "UpstreamPathTemplate": "/api/serverone-servertwo",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {
@@ -73,7 +93,8 @@
       "QuotaExceededMessage": "Customize Tips!",
       "HttpStatusCode": 999,
       "ClientIdHeader": "Test"
-    }
+    },
+   
   }
 
 }

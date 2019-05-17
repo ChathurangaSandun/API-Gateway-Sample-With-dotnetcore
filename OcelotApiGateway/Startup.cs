@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.AccessTokenValidation;
+using IdentityServer4.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +29,19 @@ namespace OcelotApiGateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var authenticationProviderKey = "OcelotKey";
+            var identityServerOptions = new IdentityServerOptions();
+            Configuration.Bind("IdentityServerOptions", identityServerOptions);
+            services.AddAuthentication(identityServerOptions.IdentityScheme)
+                .AddIdentityServerAuthentication(authenticationProviderKey, options =>
+                {
+                    options.RequireHttpsMetadata = false; 
+                    options.Authority = $"http://{identityServerOptions.ServerIP}:{identityServerOptions.ServerPort}";
+                    options.ApiName = identityServerOptions.ResourceName; 
+                    options.SupportedTokens = SupportedTokens.Both;
+                }
+                );
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddOcelot();
         }
@@ -34,8 +49,6 @@ namespace OcelotApiGateway
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
-            app.UseOcelot().Wait(); 
 
             if (env.IsDevelopment())
             {
@@ -48,6 +61,9 @@ namespace OcelotApiGateway
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
+            app.UseOcelot().Wait();
+
             app.UseMvc();
         }
     }
